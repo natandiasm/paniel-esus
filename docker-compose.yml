@@ -1,0 +1,13 @@
+services:
+  web:
+    build: .
+    ports:
+      - 8001:8001
+    depends_on:
+      - painel_esus-mongo
+
+  painel_esus-mongo:
+    container_name: painel_esus-mongo
+    image: mongo
+    ports:
+      - 27017:27017
