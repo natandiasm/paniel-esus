@@ -2,11 +2,8 @@ import os
 import pandas as pd
 
 from pymongo import MongoClient
-from dotenv import load_dotenv
 
-load_dotenv()  # take environment variables from .env.
-
-client = MongoClient(os.getenv("MONGO_URI"))
+client = MongoClient("mongodb://painel_esus-mongo:27017/esus")
 collection = client.get_database()['atendimentos']
 
 if collection.count_documents({}) == 0:
